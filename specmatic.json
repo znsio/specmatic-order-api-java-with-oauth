@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "provider": "git",
+      "test": [
+        "/Users/jaydeep/znsio/specmatic-order-api-java-with-oauth/api_order_with_oauth_v1.yaml"
+      ]
+    }
+  ],
+  "report": {
+    "formatters": [
+      {
+        "type": "text",
+        "layout": "table"
+      }
+    ],
+    "types": {
+      "APICoverage": {
+        "OpenAPI": {
+          "successCriteria": {
+            "minThresholdPercentage": 100,
+            "maxMissedEndpointsInSpec": 0,
+            "enforce": true
+          },
+          "excludedEndpoints": [
+            "/internal/metrics"
+          ]
+        }
+      }
+    }
+  }
+}
