@@ -19,7 +19,7 @@ open class SecurityConfig {
         http
             .authorizeRequests(Customizer { auth ->
                 auth
-                    .antMatchers(HttpMethod.POST, "/**").hasAuthority("SCOPE_upsert")
+                    .antMatchers(HttpMethod.POST, "/**").hasAuthority("SCOPE_write")
                     .antMatchers(HttpMethod.DELETE, "/**").hasAuthority("SCOPE_delete")
                     .anyRequest()
                     .permitAll()

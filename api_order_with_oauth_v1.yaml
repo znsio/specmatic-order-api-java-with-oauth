@@ -530,5 +530,5 @@ components:
           authorizationUrl: http://localhost:8083/auth/realms/specmatic/protocol/openid-connect/auth
           tokenUrl: http://localhost:8083/auth/realms/specmatic/protocol/openid-connect/auth/token
           scopes:
-            upsert: Create/Modify order, products
+            write: Create/Modify order, products
             delete: Delete order, products
