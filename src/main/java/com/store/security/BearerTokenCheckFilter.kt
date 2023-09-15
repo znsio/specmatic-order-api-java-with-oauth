@@ -1,4 +1,4 @@
-package com.store.filters
+package com.store.security
 
 import com.store.model.User
 import org.springframework.http.HttpMethod

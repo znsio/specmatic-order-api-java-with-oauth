@@ -1,8 +1,8 @@
 package com.store.config
 
-import com.store.filters.BearerTokenCheckFilter
-import org.springframework.boot.test.context.TestConfiguration
+import com.store.security.BearerTokenCheckFilter
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
 import org.springframework.http.HttpMethod
 import org.springframework.security.config.Customizer
@@ -10,11 +10,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter
 
-@TestConfiguration
+@Configuration
 @Profile("test")
-open class TestSecurityConfig {
+open class DummySecurityConfig {
     @Bean
-    open fun testFilterChain(http: HttpSecurity): SecurityFilterChain? {
+    open fun dummyFilterChain(http: HttpSecurity): SecurityFilterChain? {
         http
             .authorizeRequests(Customizer { auth ->
                 auth
