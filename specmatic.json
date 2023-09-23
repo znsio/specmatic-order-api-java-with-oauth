@@ -3,7 +3,7 @@
     {
       "provider": "git",
       "test": [
-        "/Users/jaydeep/znsio/specmatic-order-api-java-with-oauth/api_order_with_oauth_v1.yaml"
+        "api_order_with_oauth_v1.yaml"
       ]
     }
   ],
