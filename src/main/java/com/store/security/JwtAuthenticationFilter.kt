@@ -12,10 +12,6 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 
 class JwtAuthenticationFilter : OncePerRequestFilter() {
 
-    companion object {
-        private val logger = LoggerFactory.getLogger(JwtAuthenticationFilter::class.java)
-    }
-
     override fun doFilterInternal(
         request: HttpServletRequest,
         response: HttpServletResponse,
@@ -23,7 +19,7 @@ class JwtAuthenticationFilter : OncePerRequestFilter() {
     ) {
         val authentication = SecurityContextHolder.getContext().authentication
         if (authentication is JwtAuthenticationToken) {
-            logger.info("Request received: ${request.method} ${request.requestURI} with a jwt token with scopes: " + authentication.authorities.joinToString(", "))
+            logger.info("Request: ${request.method} ${request.requestURI} received with a JWT token with scopes: ${authentication.authorities.joinToString(", ")}")
             SecurityContextHolder.getContext().authentication =
                 PreAuthenticatedAuthenticationToken(User("authenticated_user"), null, authentication.authorities)
         }
