@@ -81,8 +81,6 @@ paths:
     post:
       summary: Update product details
       operationId: post-products-id
-      security:
-        - oAuth2AuthCode: []
       responses:
         '200':
           description: Update successful
@@ -129,8 +127,6 @@ paths:
     delete:
       summary: Delete a product
       operationId: delete-products-id
-      security:
-        - oAuth2AuthCode: []
       responses:
         '200':
           description: Deletion successful
@@ -162,8 +158,6 @@ paths:
     post:
       summary: Add new product
       operationId: post-products
-      security:
-        - oAuth2AuthCode: []
       responses:
         '200':
           description: Created
@@ -281,8 +275,6 @@ paths:
     post:
       summary: Create an order
       operationId: post-orders
-      security:
-        - oAuth2AuthCode: []
       responses:
         '200':
           description: Created
@@ -447,8 +439,6 @@ paths:
     post:
       summary: Update order details
       operationId: post-orders-id
-      security:
-        - oAuth2AuthCode: []
       responses:
         '200':
           description: Success
@@ -491,8 +481,6 @@ paths:
     delete:
       summary: Cancel an order
       operationId: delete-orders-id
-      security:
-        - oAuth2AuthCode: []
       responses:
         '200':
           description: Cancel successful
@@ -611,3 +599,6 @@ components:
         authorizationCode:
           authorizationUrl: http://localhost:8083/realms/specmatic/protocol/openid-connect/auth
           tokenUrl: http://localhost:8083/realms/specmatic/protocol/openid-connect/token
+
+security:
+  - oAuth2AuthCode: []
