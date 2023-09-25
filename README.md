@@ -20,6 +20,9 @@ In Postman request under authorization tab select type as OAuth 2.0 and click on
 auth-url = http://localhost:8083/realms/specmatic/protocol/openid-connect/auth
 access-token-url = http://localhost:8083/realms/specmatic/protocol/openid-connect/token
 client-id = order-api
+
+username: user1
+password: password
 ```
 And select "Authorize using browser" and click "Get New Access Token"
 

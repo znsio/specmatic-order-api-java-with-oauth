@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.security.oauth2.jwt.Jwt
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import java.security.Principal
 import javax.validation.Valid
 
 @RestController
@@ -40,7 +42,7 @@ open class Products {
     }
 
     @PostMapping("/products")
-    fun create(@Valid @RequestBody newProduct: Product, @AuthenticationPrincipal user: User): ResponseEntity<Id> {
+    fun create(@Valid @RequestBody newProduct: Product, @AuthenticationPrincipal principal: Jwt): ResponseEntity<Id> {
         val productId = productService.addProduct(newProduct)
         return ResponseEntity(productId, HttpStatus.OK)
     }
