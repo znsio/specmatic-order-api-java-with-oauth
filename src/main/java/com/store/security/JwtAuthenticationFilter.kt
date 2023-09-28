@@ -25,4 +25,5 @@ class JwtAuthenticationFilter : OncePerRequestFilter() {
         }
         filterChain.doFilter(request, response)
     }
+
 }

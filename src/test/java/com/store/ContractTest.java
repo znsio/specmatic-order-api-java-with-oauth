@@ -6,8 +6,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.test.context.ActiveProfiles;
-
 
 public class ContractTest extends SpecmaticJUnitSupport {
     private static ConfigurableApplicationContext context;

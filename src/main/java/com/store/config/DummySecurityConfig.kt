@@ -1,6 +1,6 @@
 package com.store.config
 
-import com.store.security.BearerTokenCheckFilter
+import com.store.security.DummySecurityFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -17,13 +17,9 @@ open class DummySecurityConfig {
     open fun dummyFilterChain(http: HttpSecurity): SecurityFilterChain? {
         http
             .authorizeRequests(Customizer { auth ->
-                auth
-                    .antMatchers(HttpMethod.POST, "/**").authenticated()
-                    .antMatchers(HttpMethod.DELETE, "/**").authenticated()
-                    .anyRequest()
-                    .permitAll()
+                auth.anyRequest().permitAll()
             })
-            .addFilterBefore(BearerTokenCheckFilter(), AbstractPreAuthenticatedProcessingFilter::class.java)
+            .addFilterBefore(DummySecurityFilter(), AbstractPreAuthenticatedProcessingFilter::class.java)
             .csrf().disable()
 
         return http.build()

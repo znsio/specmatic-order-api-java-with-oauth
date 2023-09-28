@@ -10,20 +10,16 @@ import org.springframework.security.config.annotation.web.configurers.oauth2.ser
 import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter
 import org.springframework.security.web.SecurityFilterChain
 
-
 @Configuration
 @Profile("dev")
 open class SecurityConfig() {
     @Bean
     open fun filterChain(http: HttpSecurity): SecurityFilterChain? {
-
         http
             .authorizeRequests(Customizer { auth ->
-                auth
-                    .anyRequest().hasAuthority("SCOPE_email")
+                auth.anyRequest().hasAuthority("SCOPE_email")
             })
             .addFilterAfter(JwtAuthenticationFilter(), BearerTokenAuthenticationFilter::class.java)
-
         http.oauth2ResourceServer { obj: OAuth2ResourceServerConfigurer<HttpSecurity?> -> obj.jwt() }
         return http.build()
     }
