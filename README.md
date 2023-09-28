@@ -10,7 +10,7 @@ Here is the [contract](https://github.com/znsio/specmatic-order-contracts/blob/m
 
 The architecture diagram was created using the amazing free online SVG editor at [Vectr](https://vectr.com).
 
-This project demonstrates how to leverage OpenAPI specifications as a Contract Test with Specmatic when the specification includes OAuth2 security schemes to protect the endpoints.
+This project demonstrates how to leverage OpenAPI specifications as a Contract Test with Specmatic when the specification includes [OAuth2 security schemes](https://spec.openapis.org/oas/v3.0.1#security-scheme-object) to protect the endpoints.
 We have used below tools to demonstrate the same.
 - Spring Boot
 - Keycloak
