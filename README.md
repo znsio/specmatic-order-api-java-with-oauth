@@ -1,7 +1,7 @@
 # Specmatic Sample Application to demonstrate OpenAPI OAuth2 security scheme support
 ![Specmatic Sample Application to demonstrate OpenAPI OAuth2 security scheme support](assets/SpecmaticOAuth.gif)
 
-Spec: [OpenAPI Specification](https://github.com/znsio/specmatic-order-contracts/blob/main/in/specmatic/examples/store/api_order_with_oauth_v1.yaml) governing the interaction of the client with the product API.
+Spec: [OpenAPI Specification](https://github.com/znsio/specmatic-order-contracts/blob/main/in/specmatic/examples/store/api_order_with_oauth_v1.yaml) representing endpoints exposed by this application.
 
 This project demonstrates how to leverage OpenAPI specifications as a Contract Test with Specmatic when the specification includes [OAuth2 security schemes](https://spec.openapis.org/oas/v3.0.1#security-scheme-object) to protect the endpoints.
 We have used below tools to demonstrate the same.
@@ -14,8 +14,8 @@ We have used below tools to demonstrate the same.
 The system under test here is a service that implements the OpenAPI specification and acts an OAuth2 resource server.
 
 ## Running the application:
-In this mode, we'll run Keycloak locally use it as our OAuth authorization server.  
-We use a Security Configuration (refer ```src/main/java/com/store/config/SecurityConfig.kt```) which secures every endpoint with scope : 'email'.  
+In this mode, we'll run Keycloak locally which we will leverage as our OAuth authorization server.  
+We use a Spring Security Configuration (refer ```src/main/java/com/store/config/SecurityConfig.kt```) which secures every endpoint with scope : 'email'.  
 This means, to access any endpoint, the request must contain a token with the 'email' scope in the Authorization header.  
 The application validates the token received in every request by calling the ```spring.security.oauth2.resourceserver.jwt.issuer-uri``` url defined in the ```application.properties``` file.  
 
@@ -38,9 +38,9 @@ mvn clean spring-boot:run -Dspring-boot.run.profiles=dev
 This will start the application on localhost:8080.
 
 #### Generate OAuth token
-Open Postman.  
-Create a new request with method:  ```GET``` and url: ```http://localhost:8080/products/10```  
-Under the authorization tab select type as OAuth 2.0 and click on Get New Access Token button with below details
+* Open Postman.  
+* Create a new request with method:  ```GET``` and url: ```http://localhost:8080/products/10```  
+* Under the authorization tab select type as OAuth 2.0 and click on Get New Access Token button with below details
 ```
 Auth URL = http://localhost:8083/realms/specmatic/protocol/openid-connect/auth
 Access Token URL = http://localhost:8083/realms/specmatic/protocol/openid-connect/token
@@ -48,21 +48,22 @@ CLient ID = order-api
 Client Secret = <blank>
 Scope = profile email
 ```
-And select "Authorize using browser" and click "Get New Access Token"  
-When redirected to browser enter the following user credentials:  
+* And select "Authorize using browser" and click "Get New Access Token"  
+* When redirected to browser enter the following user credentials:  
 ```
 username: user1
 password: password
 ```
-Click the Signin button.  
-You should then be able to see the generated access token with a ```Use Token``` button on top right.  
-Click the ```Use Token``` button.  
-This will take you back to your Postman request tab with the oauth token already added to the Authorization header.  
-(The Authorization header might be hidden in the default view, but you can click on the hidden headers to see it)
+* Click the Signin button.  
+* You should then be able to see the generated access token with a ```Use Token``` button on top right.  
+* Click the ```Use Token``` button.  
+* This will take you back to your Postman request tab with the oauth token already added to the Authorization header. (The Authorization header might be hidden in the default view, but you can click on the hidden headers to see it)
+
+#### Optional
+If you would like to take a look at the realm configuration of the Keycloak server launch http://localhost8083 and login with username: admin and password: admin.
 
 #### Make request with OAuth token
-Click on the ```Send``` button in Postman.  
-You should see the following response:  
+Click on the ```Send``` button in Postman. You should see the following response:  
 ```json
 {
 "name": "XYZ Phone",
