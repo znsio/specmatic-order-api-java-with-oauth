@@ -60,7 +60,7 @@ password: password
 * This will take you back to your Postman request tab with the oauth token already added to the Authorization header. (The Authorization header might be hidden in the default view, but you can click on the hidden headers to see it)
 
 #### Optional
-If you would like to take a look at the realm configuration of the Keycloak server launch http://localhost8083 and login with username: admin and password: admin.
+If you would like to take a look at the realm configuration of the Keycloak server launch admin console with http://localhost8083 in an incognito window (since your regular window you may have already logged in with the realm user credentials above) and login with username: admin and password: admin.
 
 #### Make request with OAuth token
 Click on the ```Send``` button in Postman. You should see the following response:  
