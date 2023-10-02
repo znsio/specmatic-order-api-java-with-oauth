@@ -1,14 +1,7 @@
-# Specmatic Sample Client Application
+# Specmatic Sample Application to demonstrate OpenAPI OAuth2 security scheme support
+![Specmatic Sample Application to demonstrate OpenAPI OAuth2 security scheme support](assets/SpecmaticOAuth.gif)
 
-![HTML client talks to client API which talks to backend api](specmatic-sample-architecture.svg)
-
-BFF = Backend For Frontend, the API invoked by the HTTP calls in the client HTML page (Website UI).
-
-This project contains the product API, which is used by a small [ecommerce client application]((https://github.com/znsio/specmatic-order-ui).
-
-Here is the [contract](https://github.com/znsio/specmatic-order-contracts/blob/main/in/specmatic/examples/store/api_order_v1.yaml) governing the interaction of the client with the product API.
-
-The architecture diagram was created using the amazing free online SVG editor at [Vectr](https://vectr.com).
+Spec: [OpenAPI Specification](https://github.com/znsio/specmatic-order-contracts/blob/main/in/specmatic/examples/store/api_order_with_oauth_v1.yaml) governing the interaction of the client with the product API.
 
 This project demonstrates how to leverage OpenAPI specifications as a Contract Test with Specmatic when the specification includes [OAuth2 security schemes](https://spec.openapis.org/oas/v3.0.1#security-scheme-object) to protect the endpoints.
 We have used below tools to demonstrate the same.
