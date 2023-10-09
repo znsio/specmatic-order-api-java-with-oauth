@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthen
 import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
-@Profile("dev")
+@Profile("prod")
 open class SecurityConfig() {
     @Bean
     open fun filterChain(http: HttpSecurity): SecurityFilterChain? {

@@ -33,7 +33,7 @@ This will start the Keycloak server on localhost:8083 and pre-load with a sample
 From the project root folder, run:
 
 ```shell
-mvn clean spring-boot:run -Dspring-boot.run.profiles=dev
+mvn clean spring-boot:run -Dspring-boot.run.profiles=prod
 ```
 This will start the application on localhost:8080.
 
