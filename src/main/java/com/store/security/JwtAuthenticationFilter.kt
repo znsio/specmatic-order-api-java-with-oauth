@@ -1,14 +1,13 @@
 package com.store.security
 
 import com.store.model.User
-import org.slf4j.LoggerFactory
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken
 import org.springframework.web.filter.OncePerRequestFilter
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken
 
 class JwtAuthenticationFilter : OncePerRequestFilter() {
 

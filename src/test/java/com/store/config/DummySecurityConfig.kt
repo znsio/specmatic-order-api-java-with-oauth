@@ -4,8 +4,6 @@ import com.store.security.DummySecurityFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
-import org.springframework.http.HttpMethod
-import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter
@@ -16,9 +14,9 @@ open class DummySecurityConfig {
     @Bean
     open fun dummyFilterChain(http: HttpSecurity): SecurityFilterChain? {
         http
-            .authorizeRequests(Customizer { auth ->
+            .authorizeRequests { auth ->
                 auth.anyRequest().permitAll()
-            })
+            }
             .addFilterBefore(DummySecurityFilter(), AbstractPreAuthenticatedProcessingFilter::class.java)
             .csrf().disable()
 
