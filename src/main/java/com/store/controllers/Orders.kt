@@ -23,23 +23,23 @@ class Orders {
     }
 
     @GetMapping("/orders/{id}")
-    fun get(@PathVariable("id") id: Int): Order {
+    fun get(@PathVariable("id") id: Double): Order {
         try {
-            return orderService.getOrder(id)
+            return orderService.getOrder(id.toInt())
         } catch (e: NoSuchElementException) {
             throw NotFoundException(e.message!!)
         }
     }
 
     @DeleteMapping("/orders/{id}")
-    fun delete(@PathVariable("id") id: Int, @AuthenticationPrincipal user: User): ResponseEntity<String> {
-        orderService.deleteOrder(id)
+    fun delete(@PathVariable("id") id: Double, @AuthenticationPrincipal user: User): ResponseEntity<String> {
+        orderService.deleteOrder(id.toInt())
         return ResponseEntity(HttpStatus.OK)
     }
 
     @PostMapping("/orders/{id}")
     fun update(
-        @PathVariable("id") id: Int,
+        @PathVariable("id") id: Double,
         @Valid @RequestBody order: Order,
         @AuthenticationPrincipal user: User
     ): ResponseEntity<String> {
